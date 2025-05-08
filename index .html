@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>سؤال رومانسي لدعاء</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to right, #ffe6f0, #fff0f5);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: background 1s ease;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #b30059;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 2px #ff99c2;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 1.3em;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    #yes {
+      background-color: #ff4da6;
+      color: white;
+    }
+
+    #no {
+      background-color: #cccccc;
+      color: #333;
+    }
+
+    #response {
+      margin-top: 40px;
+      font-size: 2em;
+      text-align: center;
+      display: none;
+    }
+
+    .heart, .tear {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: float 5s linear infinite;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after,
+    .tear::before,
+    .tear::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: inherit;
+    }
+
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+
+    .tear {
+      background-color: #5dade2;
+    }
+
+    .tear::before, .tear::after {
+      background-color: #5dade2;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>يا دعاااااااء ، بتحبيني ؟ 🥺</h1>
+  <div>
+    <button class="btn" id="yes" onclick="loveAnswer()">بحبك ايووودي 😍❤️</button>
+    <button class="btn" id="no" onclick="sadAnswer()">لا مش بحبك 🙂</button>
+  </div>
+  <div id="response"></div>
+
+  <script>
+    function createEffect(type) {
+      for (let i = 0; i < 30; i++) {
+        let el = document.createElement("div");
+        el.className = type;
+        el.style.left = Math.random() * 100 + "vw";
+        el.style.animationDelay = Math.random() * 3 + "s";
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 6000);
+      }
+    }
+
+    function loveAnswer() {
+      document.body.style.background = "linear-gradient(to top right, #ffccdd, #ffe6f0)";
+      document.getElementById("response").innerText = "تعالي حضن 🫂";
+      document.getElementById("response").style.color = "#b30059";
+      document.getElementById("response").style.display = "block";
+      createEffect("heart");
+    }
+
+    function sadAnswer() {
+      document.body.style.background = "linear-gradient(to bottom left, #999, #666)";
+      document.getElementById("response").innerText = "بس انا بحبك 😔💔";
+      document.getElementById("response").style.color = "#222";
+      document.getElementById("response").style.display = "block";
+      createEffect("tear");
+    }
+  </script>
+</body>
+</html>
